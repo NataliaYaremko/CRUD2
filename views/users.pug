@@ -1,0 +1,50 @@
+extends layout
+
+block content
+  h1 Welcome to user data 
+  p 
+
+  
+  table
+    thead
+      tr
+        th ID
+        th Name
+        th Surname
+        th Email
+        th Age
+        th Edit
+        th Delete
+    tbody
+       each user in users    
+        tr
+          td= user.id
+          td= user.name
+          td= user.lastname
+          td= user.email
+          td= user.age
+          td: img(src='/images/edit.png' onclick= `editUser(${JSON.stringify(user)})`)
+          td: form(action = '/users?_method=DELETE'  method='post')
+                input(type='submit' value='delete') 
+    hr  
+    button(onclick= 'addUser()' class='btn_gray') Add new user 
+    hr   
+  div(id='myModal' class='modal' style='display:none')
+    div(class='modal-content')
+
+    h2 Add new user
+    button(class='btn_gray' onclick= 'hideModal()') Close form
+    form(id='myForm' method='post' action = '/users?_method=POST')
+      fieldset
+        legend New user data:
+        label(for='name') First Name:
+        input(type='text' id='name' name='name' placeholder='Please enter your first name')
+        label(for='lastname') Last Name:
+        input(type='text' id='lastname' name='lastname' placeholder='Please enter your last name')
+        label(for='email') Email:
+        input(type='email' id='email' name='email' placeholder='Please enter your email')
+        label(for='age') Age:
+        input(type='text' id='age' name='age' placeholder='Please enter your age')
+        input(type='submit' value='Submit' onclick= 'hideModal()')
+
+      
