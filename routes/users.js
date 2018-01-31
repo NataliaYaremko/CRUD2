@@ -19,9 +19,8 @@ router.get('/users', (req, res) => {
 });
 
 router.delete('/users', urlencodedParser, (req, res) => {
-  if (req.body.id) {
-    console.log(`${req.params.id} DELETED`);
-    users = users.filter(el => el.id != req.body.id);
+  if (Object.keys(req.body)) {
+    users = users.filter(el => el.id != Object.keys(req.body));
     res.render('users', { users });
   } else {
     res.render('users', { users });

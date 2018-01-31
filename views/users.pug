@@ -25,7 +25,7 @@ block content
           td= user.age
           td: img(src='/images/edit.png' onclick= `editUser(${JSON.stringify(user)})`)
           td: form(action = '/users?_method=DELETE'  method='post')
-                input(type='submit' value='delete') 
+                input(type='submit' value='delete' name=user.id) 
     hr  
     button(onclick= 'addUser()' class='btn_gray') Add new user 
     hr   
