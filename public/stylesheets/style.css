@@ -32,6 +32,10 @@ input{
   margin: 10px;
   padding: 4px;
 }
+
+#id{
+  display:none;
+}
 legend{
   margin: 10px;
   font-weight: bolder;

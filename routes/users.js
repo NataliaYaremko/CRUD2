@@ -40,7 +40,7 @@ router.post('/users', urlencodedParser, (req, res) => {
 
 
 router.put('/users', urlencodedParser, (req, res) => {
-  const userToEdit = req.body;
+  const userToEdit = users.find(user => user.id == req.body.id);
   userToEdit.name = req.body.name;
   userToEdit.lastname = req.body.lastname;
   userToEdit.email = req.body.email;
