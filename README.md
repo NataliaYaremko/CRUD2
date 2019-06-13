@@ -9,3 +9,5 @@ To setup
 2.npm start
 
 3.in browser open localhost:3000/users
+
+To see the application please visit https://mycrudapp.herokuapp.com/users
